@@ -22,22 +22,23 @@ async function fetchTrainTable() {
     let badgeClass, badgeText, normalText;
 switch (train.status) {
     case "on_time":
-    // case "I-tid": Behövs ej
+    // case "I-tid":      Behövs inte längre då vi bara sparar "on_time" i databasen.
         badgeClass = "bg-success";
         badgeText = "I tid";
         normalText = "text-white";
         break;
     case "delayed":
-    //case "Försenad":
+    // case "Försenad":    Behövs inte längre då vi bara sparar "delayed" i databasen.
         badgeClass = "bg-warning text-dark";
         badgeText = "Försenad";
         normalText = "text-white";
         break;
     case "cancelled":
-    // case "Inställd":
+    // case "Inställd":   Behövs inte längre då vi bara sparar "cancelled" i databasen.
         badgeClass = "bg-danger";
         badgeText = "Inställd";
         normalText = "text-danger";
+        normalText = "text-danger text-decoration-line-through"; // Lägg till genomstruken text för inställda tåg
         break;
     default: 
         badgeClass = 'bg-secondary';
