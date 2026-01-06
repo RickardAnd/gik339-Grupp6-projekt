@@ -22,19 +22,19 @@ async function fetchTrainTable() {
     let badgeClass, badgeText, normalText;
 switch (train.status) {
     case "on_time":
-    case "I-tid": // Hanterar både gammal testdata och ny data
+    // case "I-tid": Behövs ej
         badgeClass = "bg-success";
         badgeText = "I tid";
         normalText = "text-white";
         break;
     case "delayed":
-    case "Försenad":
+    //case "Försenad":
         badgeClass = "bg-warning text-dark";
         badgeText = "Försenad";
         normalText = "text-white";
         break;
     case "cancelled":
-    case "Inställd":
+    // case "Inställd":
         badgeClass = "bg-danger";
         badgeText = "Inställd";
         normalText = "text-danger";
