@@ -38,7 +38,7 @@ switch (train.status) {
         badgeClass = "bg-danger";
         badgeText = "Inställd";
         normalText = "text-danger";
-        normalText = "text-danger text-decoration-line-through";
+        normalText = "text-danger text-decoration-line-through"; // Lägg till genomstruken text för inställda tåg
         break;
     default: 
         badgeClass = 'bg-secondary';
