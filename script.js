@@ -55,7 +55,7 @@ switch (train.status) {
         <td>
             <span class="badge ${badgeClass}">${badgeText}</span>
         </td>
-        <td>
+        <td class="text-end">
             <button class="btn btn-sm btn-primary me-1" onclick="editTrain(${train.id})">Ändra</button>
             <button class="btn btn-sm btn-danger" onclick="deleteTrain(${train.id})">Ta bort</button>
         </td>`;
