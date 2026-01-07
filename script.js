@@ -37,7 +37,6 @@ switch (train.status) {
     // case "Inställd":   Behövs inte längre då vi bara sparar "cancelled" i databasen.
         badgeClass = "bg-danger";
         badgeText = "Inställd";
-        normalText = "text-danger";
         normalText = "text-danger text-decoration-line-through"; // Lägg till genomstruken text för inställda tåg
         break;
     default: 
