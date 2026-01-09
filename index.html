@@ -41,7 +41,7 @@
         <div class="col">
           <label for="time">Tid</label>
           <input
-            type="text"
+            type="time"
             id="time"
             name="textfield"
             class="form-control"
@@ -51,7 +51,7 @@
         <div class="col">
           <label for="track">Spår</label>
           <input
-            type="text"
+            type="number" min="1" max="10"
             id="track"
             name="textfield"
             class="form-control"
@@ -90,7 +90,7 @@
                   <th>Tid</th>
                   <th>Spår</th>
                   <th>Status</th>
-                  <th class="text-end" style="padding-right: 4rem;">Åtgärder</th>
+                  <th class="text-end pe-3">Åtgärder</th>
                 </tr>
               </thead>
               <tbody id="trainList">
