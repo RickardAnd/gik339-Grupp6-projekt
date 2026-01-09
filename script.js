@@ -38,7 +38,6 @@ switch (train.status) {
     // case "Inställd":   Behövs inte längre då vi bara sparar "cancelled" i databasen.
         badgeClass = "bg-danger";
         badgeText = "Inställd";
-        normalText = "text-danger";
         normalText = "text-danger text-decoration-line-through"; // Lägg till genomstruken text för inställda tåg
         break;
     default: 
@@ -57,8 +56,15 @@ switch (train.status) {
             <span class="badge ${badgeClass}">${badgeText}</span>
         </td>
         <td class="text-end">
-            <button class="btn btn-sm btn-primary me-1" onclick="editTrain(${train.id})">Ändra</button>
-            <button class="btn btn-sm btn-danger" onclick="deleteTrain(${train.id})">Ta bort</button>
+
+<button class="btn btn-sm btn-outline-primary me-1" onclick="editTrain(${train.id})">
+    <i class="bi bi-pencil"></i>
+</button>
+
+
+<button class="btn btn-sm btn-outline-danger" onclick="deleteTrain(${train.id})">
+    <i class="bi bi-trash"></i>
+</button>
         </td>`;
     trainList.appendChild(row);
   });
