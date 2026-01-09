@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tåglistan</title>
+    <title>Document</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
-  <body class="bg-primary-subtle">
+  <!-- Ändrade bakgrundsfärgen -->
+  <body class="bg-secondary"> 
     <div class="container p-3 my-3 bg-dark bg-gradient text-white rounded">
-      <h1 class="display-4 text-center mb-3">Grupp 6 - Tåglistan</h1>
+      <h1 class="display-6 text-center mb-3">Kontrollcenter - Stationstavla</h1>
       <input type="hidden" id="trainId" value="">
       <div class="row">
         <div class="col mb-3">
@@ -39,7 +41,7 @@
         <div class="col">
           <label for="time">Tid</label>
           <input
-            type="text"
+            type="time"
             id="time"
             name="textfield"
             class="form-control"
@@ -49,7 +51,7 @@
         <div class="col">
           <label for="track">Spår</label>
           <input
-            type="text"
+            type="number" min="1" max="10"
             id="track"
             name="textfield"
             class="form-control"
@@ -71,7 +73,7 @@
       <div class="row">
         <div class="col">
           <button class="btn btn-primary submit" name="submit" id="submit">
-            Spara tåg
+            Lägg till tåg
           </button>
           <button class="btn btn-secondary clear" name="clear" id="clear">Rensa</button>
         </div>
@@ -88,7 +90,7 @@
                   <th>Tid</th>
                   <th>Spår</th>
                   <th>Status</th>
-                  <th>Åtgärder</th>
+                  <th class="text-end pe-3">Åtgärder</th>
                 </tr>
               </thead>
               <tbody id="trainList">
@@ -98,21 +100,21 @@
         </div>
       </div>
 
-      <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content bg-dark text-white border-secondary">
-            <div class="modal-header border-secondary">
-              <h5 class="modal-title" id="modalTitle">Meddelande</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal fade" id="feedbackModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white border-light">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Systemmeddelande</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modalMessage">
             </div>
-            <div class="modal-body text-center" id="modalMessage">
-              </div>
-            <div class="modal-footer border-secondary">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okej</button>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Stäng</button>
           </div>
         </div>
       </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <script src="script.js"></script>
