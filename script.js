@@ -71,8 +71,12 @@ async function fetchTrainTable() {
                 <td><span class="${normalText}">${train.track}</span></td>
                 <td><span class="badge ${badgeClass}">${badgeText}</span></td>
                 <td>
-                    <button class="btn btn-sm btn-primary me-1" onclick="editTrain(${train.id})">Ändra</button>
-                    <button class="btn btn-sm btn-danger" onclick="deleteTrain(${train.id}, '${train.trainnr}')">Ta bort</button>
+        <button class="btn btn-sm btn-secondary me-1" onclick="editTrain(${train.id})">
+        <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-secondary" onclick="deleteTrain(${train.id})">
+        <i class="bi bi-trash"></i>
+        </button>
                 </td>`;
             trainList.appendChild(row);
         });
