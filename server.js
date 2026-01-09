@@ -36,7 +36,7 @@ db.serialize(() => {
       
       stmt.finalize();
     }
-  });
+  });   
 });
 
 server.listen(PORT, () => {
