@@ -87,8 +87,7 @@ async function fetchTrainTable() {
 
 /* Spara eller Uppdatera tåg */
 submit.addEventListener("click", async () => {
-    console.log("Nu klickade vi på knappen!"); // Lägg till denna rad
-    showFeedback("Testar om knappen når hit!");
+
     const id = trainIdInput.value; // Kolla om vi har ett ID (för PUT)
     const trainData = {
         trainnr: document.getElementById("trainnr").value,
