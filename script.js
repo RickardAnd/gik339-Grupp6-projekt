@@ -85,6 +85,9 @@ async function fetchTrainTable() {
     }
 }
 
+/* Tog lite hjälp av Gemini då det blev svårt att "kombinera" spara och uppdatera i samma eventlyssnare. 
+Jag fick inte till det så frågade hur man kan göra och fick ett bra svar som jag anpassade lite för att passa in i vår kodbas. */
+
 /* Spara eller Uppdatera tåg */
 submit.addEventListener("click", async () => {
 
