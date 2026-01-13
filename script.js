@@ -23,7 +23,7 @@ function showFeedback(message) {
 clear.addEventListener("click", () => {
     for (let i = 0; i < textfields.length; i++) {
         textfields[i].value = "";
-    }3000
+    }
     document.getElementById("status").value = "";
     trainIdInput.value = ""; // Nolla dolda ID:t
     submit.innerText = "Spara tåg";
@@ -33,7 +33,7 @@ clear.addEventListener("click", () => {
 /* Hämta tåglista från databas */
 async function fetchTrainTable() {
     try {
-        const response = await fetch("http://localhost:/trainTable");
+        const response = await fetch("http://localhost:3000/trainTable");
         const trains = await response.json();
 
         const trainList = document.getElementById("trainList");
@@ -74,7 +74,9 @@ async function fetchTrainTable() {
         <button class="btn btn-sm btn-secondary me-1" onclick="editTrain(${train.id})">
         <i class="bi bi-pencil"></i>
         </button>
-        <button class="btn btn-sm btn-secondary" onclick="deleteTrain(${train.id})">
+        <button class="btn btn-sm btn-secondary" onclick="deleteTrain(${train.id}, '${train.trainnr}')">
+        <i class="bi bi-trash"></i>
+        </button>
                 </td>`;
             trainList.appendChild(row);
         });
