@@ -74,8 +74,7 @@ async function fetchTrainTable() {
         <button class="btn btn-sm btn-secondary me-1" onclick="editTrain(${train.id})">
         <i class="bi bi-pencil"></i>
         </button>
-        <button class="btn btn-sm btn-secondary" onclick="deleteTrain(${train.id}, '${train.trainnr}')">
-        </button>
+        <button class="btn btn-sm btn-secondary" onclick="deleteTrain(${train.id})">
                 </td>`;
             trainList.appendChild(row);
         });
