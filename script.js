@@ -70,9 +70,13 @@ async function fetchTrainTable() {
                 <td><span class="${normalText}">${train.time}</span></td>
                 <td><span class="${normalText}">${train.track}</span></td>
                 <td><span class="badge ${badgeClass}">${badgeText}</span></td>
-                <td>
-                    <button class="btn btn-sm btn-primary me-1" onclick="editTrain(${train.id})">Ändra</button>
-                    <button class="btn btn-sm btn-danger" onclick="deleteTrain(${train.id}, '${train.trainnr}')">Ta bort</button>
+                <td class="text-end pe-2">
+        <button class="btn btn-sm btn-secondary me-1" onclick="editTrain(${train.id})">
+        <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-secondary" onclick="deleteTrain(${train.id})">
+        <i class="bi bi-trash"></i>
+        </button>
                 </td>`;
             trainList.appendChild(row);
         });
@@ -81,10 +85,12 @@ async function fetchTrainTable() {
     }
 }
 
+/* Tog lite hjälp av Gemini då det blev svårt att "kombinera" spara och uppdatera i samma eventlyssnare. 
+Jag fick inte till det så frågade hur man kan göra och fick ett bra svar som jag anpassade lite för att passa in i vår kodbas. */
+
 /* Spara eller Uppdatera tåg */
 submit.addEventListener("click", async () => {
-    console.log("Nu klickade vi på knappen!"); // Lägg till denna rad
-    showFeedback("Testar om knappen når hit!");
+
     const id = trainIdInput.value; // Kolla om vi har ett ID (för PUT)
     const trainData = {
         trainnr: document.getElementById("trainnr").value,
