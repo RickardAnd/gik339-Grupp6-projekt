@@ -100,6 +100,12 @@ submit.addEventListener("click", async () => {
         status: document.getElementById("status").value
     };
 
+        // Validering till användaren om något fält är tomt
+if (!trainData.trainnr || !trainData.destination || !trainData.time || !trainData.track || !trainData.status) {
+        showFeedback("Vänligen fyll i alla fält (Tågnummer, Destination, Tid, Spår och Status).");
+        return; // stoppar så tåget inte läggs in
+    }
+
     // Välj metod baserat på om ID finns
     const method = id ? "PUT" : "POST";
     const url = id ? `http://localhost:3000/trainTable/${id}` : "http://localhost:3000/trainTable";
