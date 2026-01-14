@@ -74,7 +74,7 @@ async function fetchTrainTable() {
         <button class="btn btn-sm btn-secondary me-1" onclick="editTrain(${train.id})">
         <i class="bi bi-pencil"></i>
         </button>
-        <button class="btn btn-sm btn-secondary" onclick="deleteTrain(${train.id}, '${train.trainnr}')">
+        <button class="btn btn-sm btn-secondary" onclick="deleteTrain(${train.id})">
         <i class="bi bi-trash"></i>
         </button>
                 </td>`;
@@ -100,12 +100,12 @@ submit.addEventListener("click", async () => {
         status: document.getElementById("status").value
     };
 
-    // Validering till användaren om något fält är tomt
-    if (!trainnr || !destination || !time || !track || !status) {
+        // Validering till användaren om något fält är tomt
+if (!trainData.trainnr || !trainData.destination || !trainData.time || !trainData.track || !trainData.status) {
         showFeedback("Vänligen fyll i alla fält (Tågnummer, Destination, Tid, Spår och Status).");
         return; // stoppar så tåget inte läggs in
     }
-    
+
     // Välj metod baserat på om ID finns
     const method = id ? "PUT" : "POST";
     const url = id ? `http://localhost:3000/trainTable/${id}` : "http://localhost:3000/trainTable";
@@ -136,7 +136,6 @@ async function editTrain(id) {
     const trains = await response.json();
     const train = trains.find(t => t.id === id);
 
-
     if (train) {
         trainIdInput.value = train.id; // Sätt dolda ID-fältet
         document.getElementById("trainnr").value = train.trainnr;
@@ -153,7 +152,6 @@ async function editTrain(id) {
 
 /* Funktion för att ta bort tåg med feedback */
 async function deleteTrain(id, nr) {
-    console.log(id, nr)
     if (confirm(`Är du säker på att du vill ta bort tåg ${nr}?`)) {
         try {
             const response = await fetch(`http://localhost:3000/trainTable/${id}`, { method: "DELETE" });
